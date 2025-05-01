@@ -3,7 +3,6 @@ import axios from 'axios';
 import './App.css';
 import bikeImage from './bike.jpg'; // 👈 import the image
 
-
 function App() {
   const [amount, setAmount] = useState('');
   const [name, setName] = useState('');
@@ -148,7 +147,17 @@ function App() {
   // Fetch donations data when component mounts
   useEffect(() => {
     fetchDonations();
-  }, []);
+
+    // Fetching additional data from an API endpoint
+    fetch(`${process.env.REACT_APP_API_URL}/api/some-endpoint`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);  // Log or use the data as needed
+        // Optionally update state with the fetched data
+        // setSomeState(data);
+      })
+      .catch(error => console.error('Error:', error));
+  }, []); // Empty dependency array means it runs only once when the component mounts
 
   return (
     <div className={`app ${isAnimating ? 'pulse-effect' : ''}`}>
@@ -165,20 +174,6 @@ function App() {
 
       <main className="main-content">
         {/* GT650 Bike Image Section */}
-        {/* <div className="bike-section" style={{ display: showBikeImage ? 'block' : 'none' }}>
-          <img 
-            src="https://imgd.aeplcdn.com/1056x594/n/zp6pseb_1777219.jpg?q=80" 
-            alt="Royal Enfield GT650" 
-            className="bike-image"
-          />
-          <div className="bike-specs">
-            <span className="spec-tag">647cc Twin Cylinder</span>
-            <span className="spec-tag">47 BHP</span>
-            <span className="spec-tag">52 Nm Torque</span>
-            <span className="spec-tag">Café Racer</span>
-          </div>
-        </div> */}
-
         <div className="fundraiser-card">
           <div className="progress-container">
             <h3>Fundraising Progress</h3>
@@ -280,7 +275,6 @@ function App() {
           </a>
         </p>
       </footer>
-
     </div>
   );
 }
