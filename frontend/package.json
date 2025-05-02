@@ -12,17 +12,15 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-toastify": "^11.0.5",
-    "web-vitals": "^2.1.4",
-    "react-scripts": "^5.0.1"
+    "web-vitals": "^2.1.4"
   },
- "scripts": {
-  "prebuild": "chmod +x node_modules/.bin/react-scripts",
-  "build": "react-scripts build",
-  "start": "react-scripts start",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-}
-,
+  "scripts": {
+    "prebuild": "chmod +x node_modules/.bin/react-scripts",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -41,5 +39,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
+  }
 }
