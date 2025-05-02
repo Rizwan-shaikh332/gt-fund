@@ -15,12 +15,14 @@
     "web-vitals": "^2.1.4",
     "react-scripts": "^5.0.1"
   },
-  "scripts": {
-    "build": "react-scripts build",
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+ "scripts": {
+  "prebuild": "chmod +x node_modules/.bin/react-scripts",
+  "build": "react-scripts build",
+  "start": "react-scripts start",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+}
+,
   "eslintConfig": {
     "extends": [
       "react-app",
